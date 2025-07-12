@@ -13,7 +13,7 @@ const parseArgumentsForBmi = (args: string[]): [number, number] => {
 		throw new Error('Provided values were not numbers! Please provide height in cm and weight in kg.');
 	}
 	return [height, weight];
-}
+};
 
 const parseArgumentsForExercise = (args: string[]): [number[], number] => {
 	if (args.length < 4) {
@@ -25,6 +25,6 @@ const parseArgumentsForExercise = (args: string[]): [number[], number] => {
 		throw new Error('Provided values were not numbers! Please provide an array of numbers followed by a target number.');
 	}
 	return [hours, target];
-}
+};
 
 export { parseArgumentsForBmi, parseArgumentsForExercise };

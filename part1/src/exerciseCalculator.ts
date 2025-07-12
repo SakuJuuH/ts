@@ -55,11 +55,19 @@ const calculateExercise = (exerciseHours: number[], target: number): Result => {
 	};
 
 	return result;
-}
-try {
-	const [exerciseHours, target] = parseArgumentsForExercise(process.argv);
-	console.log(calculateExercise(exerciseHours, target));
-} catch (error) {
-	console.error(error.message);
-	process.exit(1);
+};
+
+if (require.main === module) { // Check if the script is run directly
+	try {
+		const [exerciseHours, target] = parseArgumentsForExercise(process.argv);
+		console.log(calculateExercise(exerciseHours, target));
+	} catch (error) {
+		if (error instanceof Error) {
+			console.error(error.message);
+		}
+		else {
+			console.error('An unexpected error occurred.');
+		}
+		process.exit(1);
+	}
 }

@@ -13,14 +13,19 @@ export const calculateBmi = (height: number, weight: number): string => {
 	} else {
 		return 'Obesity';
 	}
-}
+};
 
 if (require.main === module) { // Check if the script is run directly
 	try {
 		const [height, weight] = parseArgumentsForBmi(process.argv);
 		console.log(calculateBmi(height, weight));
 	} catch (error) {
-		console.error(error.message);
+		if (error instanceof Error) {
+			console.error(error.message);
+		}
+		else {
+			console.error('An unexpected error occurred.');
+		}
 		process.exit(1);
 	}
-}
+};
