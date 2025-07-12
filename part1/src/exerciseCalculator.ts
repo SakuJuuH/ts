@@ -10,7 +10,7 @@ interface Result {
 	average: number;
 }
 
-const calculateExercise = (exerciseHours: number[], target: number): Result => {
+export const calculateExercise = (exerciseHours: number[], target: number): Result => {
 	let success: boolean = true;
 	const periodLength: number = exerciseHours.length;
 	let trainingDays: number = 0;
