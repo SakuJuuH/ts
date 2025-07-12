@@ -1,6 +1,6 @@
 import { parseArgumentsForBmi } from './helpers';
 
-const calculateBmi = (height: number, weight: number): string => {
+export const calculateBmi = (height: number, weight: number): string => {
 	const heightInMeters = height / 100;
 	const bmi = weight / (heightInMeters * heightInMeters);
 
@@ -15,11 +15,12 @@ const calculateBmi = (height: number, weight: number): string => {
 	}
 }
 
-try {
-	const [height, weight] = parseArgumentsForBmi(process.argv);
-	console.log(calculateBmi(height, weight));
-} catch (error) {
-	console.error(error.message);
-	process.exit(1);
+if (require.main === module) { // Check if the script is run directly
+	try {
+		const [height, weight] = parseArgumentsForBmi(process.argv);
+		console.log(calculateBmi(height, weight));
+	} catch (error) {
+		console.error(error.message);
+		process.exit(1);
+	}
 }
-
