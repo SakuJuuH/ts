@@ -3,8 +3,10 @@ import { Request, Response } from "express";
 import { APIPatient, Diagnosis } from "./types";
 import patientsService from "./services/patientsService";
 import diagnosisService from "./services/diagnosisService";
+import { v1 as uuid } from "uuid";
 const cors = require("cors");
 const app = express();
+const id = uuid();
 
 app.use(cors());
 app.use(express.json());
@@ -28,6 +30,10 @@ app.get("/api/patients", (_req: Request, res: Response) => {
         occupation: patient.occupation
     }));
     res.json(publicPatients);
+});
+
+app.post("/api/patients", (_req: Request, res: Response) => {
+    res.status(501).send({ error: "Not implemented" });
 });
 
 const PORT = process.env.PORT || 3001;
