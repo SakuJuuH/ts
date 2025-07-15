@@ -4,3 +4,13 @@ export type Diagnosis = {
     latin?: string;
 };
 
+export type Patient = {
+    id: string;
+    name: string;
+    dateOfBirth: string;
+    ssn: string;
+    gender: string;
+    occupation: string;
+};
+
+export type APIPatient = Pick<Patient, 'id' | 'name' | 'dateOfBirth' | 'gender' | 'occupation'>;
