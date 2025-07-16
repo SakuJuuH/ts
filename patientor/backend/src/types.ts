@@ -1,3 +1,5 @@
+import { z } from 'zod';
+
 export type Diagnosis = {
     name: string
     code: string;
@@ -22,3 +24,12 @@ export enum Gender {
     Female = 'female',
     Other = 'other'
 }
+
+export const newPatientSchema = z.object({
+    name: z.string(),
+    dateOfBirth: z.iso.date(),
+    ssn: z.string(),
+    gender: z.enum(Object.values(Gender)),
+    occupation: z.string()
+});
+
