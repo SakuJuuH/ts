@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import { useState } from 'react'
 import Content from './components/Content'
 import AddDiary from './components/AddDiary'
 import type { Entry } from './types'
