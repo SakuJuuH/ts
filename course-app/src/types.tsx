@@ -3,10 +3,10 @@ interface CoursePartBase {
   exerciseCount: number;
   }
   
-  interface CoursePartWithDescription extends CoursePartBase {
-  description: string;
-  kind: "basic" | "background" | "special";
-  }
+interface CoursePartWithDescription extends CoursePartBase {
+description: string;
+kind: "basic" | "background" | "special";
+}
 
 interface CoursePartBasic extends CoursePartWithDescription {
   kind: "basic"
